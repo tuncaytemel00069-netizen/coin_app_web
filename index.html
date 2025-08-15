@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin App</title>
+    <style>
+        body {
+            background-color: #1f1135;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+        .coin {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+        .balance {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .energy {
+            background-color: #ffcc00;
+            height: 20px;
+            width: 80%;
+            margin: auto;
+            border-radius: 10px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #007bff;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1em;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <header>🚀 Coin App</header>
+    <div class="coin">🪙</div>
+    <div class="balance">Balance: <span id="balance">0.000000</span> USDT</div>
+    <div class="energy"></div>
+    <div class="buttons">
+        <button onclick="mineCoin()">Mine</button>
+        <button onclick="withdraw()">Withdraw</button>
+    </div>
+
+    <script>
+        let balance = 0.0;
+
+        function mineCoin() {
+            balance += 0.000300;
+            document.getElementById("balance").innerText = balance.toFixed(6);
+        }
+
+        function withdraw() {
+            alert("Withdraw function coming soon!");
+        }
+    </script>
+</body>
+</html>
