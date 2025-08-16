@@ -1,99 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coin App</title>
-<style>
-    body {
-        background-color: #1f1135;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        color: white;
-        text-align: center;
-    }
-    header {
-        padding: 15px;
-        font-size: 20px;
-        font-weight: bold;
-        background-color: #2a1f4a;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-    .coin-icon {
-        font-size: 60px;
-        margin-top: 30px;
-    }
-    .balance {
-        font-size: 24px;
-        margin: 10px 0;
-    }
-    .energy-bar {
-        background-color: #3a2c5a;
-        border-radius: 10px;
-        width: 80%;
-        margin: 15px auto;
-        height: 20px;
-        position: relative;
-    }
-    .energy-fill {
-        background-color: #ffcc00;
-        height: 100%;
-        border-radius: 10px;
-        width: 100%;
-    }
-    button {
-        background-color: #ff9900;
-        color: white;
-        border: none;
-        padding: 15px 30px;
-        font-size: 18px;
-        border-radius: 8px;
-        margin-top: 20px;
-        cursor: pointer;
-    }
-    button:hover {
-        opacity: 0.9;
-    }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="app">
+    <header>
+      <h2>Coin App</h2>
+      <p class="username">WHITEWOLF0012</p>
+    </header>
 
-<header>🚀 Coin App</header>
+    <main>
+      <div class="profit-box">
+        <div class="profit">Profit per click<br><span>+0.000300</span></div>
+        <div class="profit">Profit per hour<br><span>+0</span></div>
+      </div>
 
-<div class="coin-icon">🪙</div>
-<div class="balance">Balance: <span id="balance">0.000000</span> USDT</div>
+      <div class="balance">
+        <h1>0.069300 USDT</h1>
+      </div>
 
-<div class="energy-bar">
-    <div class="energy-fill" id="energy"></div>
-</div>
+      <div class="coin">
+        <img src="coin.png" alt="Coin">
+      </div>
 
-<button onclick="mineCoin()">Mine</button>
+      <div class="energy">
+        <p>498 / 500 ⚡</p>
+        <div class="bar">
+          <div class="fill" style="width: 99%;"></div>
+        </div>
+      </div>
+    </main>
 
-<script>
-    let balance = 0.000000;
-    let energy = 100;
-
-    function mineCoin() {
-        if (energy > 0) {
-            balance += 0.000300;
-            energy -= 5;
-            document.getElementById("balance").innerText = balance.toFixed(6);
-            document.getElementById("energy").style.width = energy + "%";
-        } else {
-            alert("No energy left! Wait for recharge.");
-        }
-    }
-
-    // Enerji her 5 saniyede %5 dolsun
-    setInterval(() => {
-        if (energy < 100) {
-            energy += 5;
-            if (energy > 100) energy = 100;
-            document.getElementById("energy").style.width = energy + "%";
-        }
-    }, 5000);
-</script>
-
+    <nav>
+      <button class="active">HOME</button>
+      <button>MINE</button>
+      <button>FRIENDS</button>
+      <button>EARN</button>
+    </nav>
+  </div>
 </body>
 </html>
