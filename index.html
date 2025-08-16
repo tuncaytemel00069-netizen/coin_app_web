@@ -1,74 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coin App</title>
   <style>
     body {
-      background-color: #2d0a3d;
-      color: white;
+      margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #2e004f;
+      color: white;
       text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
       padding: 20px;
     }
 
-    h1 {
-      margin-bottom: 5px;
-    }
-
     .coin-img {
-      width: 180px;
+      width: 250px;
+      height: auto;
       margin: 20px auto;
-      cursor: pointer;
       display: block;
     }
 
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 30px;
+    h1 {
+      margin: 10px 0;
+      font-size: 26px;
     }
 
-    .nav-buttons button {
-      background-color: #4b0e69;
+    .balance {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
       color: white;
+      background: linear-gradient(45deg, #ff9800, #ff5722);
       border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 14px;
+      transition: 0.2s;
+      text-decoration: none;
     }
 
-    .nav-buttons button:hover {
-      background-color: #6a1b9a;
+    .btn:hover {
+      background: linear-gradient(45deg, #ff5722, #ff9800);
+      transform: scale(1.05);
+    }
+
+    .progress {
+      width: 100%;
+      background: #444;
+      border-radius: 10px;
+      margin: 20px 0;
+      height: 15px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 30%;
+      background: limegreen;
     }
   </style>
 </head>
 <body>
-  <h1>USERNAME</h1>
-  <p>Profit per click<br>+0.000300<br>Profit per hour<br>+0</p>
-  <h2 id="balance">0.000000 USDT</h2>
+  <div class="container">
+    <h1>Tuncay</h1>
+    <p class="balance">0.000000 USDT</p>
 
-  <!-- LOGO BURADA -->
-  <img 
-    src="https://raw.githubusercontent.com/tuncaytemel00069-netizen/coin_app_web/main/logo.png"
-    alt="Coin Logo"
-    class="coin-img"
-    onclick="mineCoin()" 
-  />
+    <!-- Coin resmi -->
+    <img src="logo.png" alt="Coin" class="coin-img">
 
-  <p id="clicks">0/500</p>
+    <!-- Progress bar -->
+    <div class="progress">
+      <div class="progress-bar"></div>
+    </div>
 
-  <div class="nav-buttons">
-    <button>HOME</button>
-    <button>MINE</button>
-    <button>FRIENDS</button>
-    <button>EARN</button>
+    <!-- Oyun butonu -->
+    <a href="#" class="btn">Play Now</a>
   </div>
-
-  <!-- Script bağlantısı -->
-  <script src="script.js"></script>
 </body>
 </html>
