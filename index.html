@@ -1,77 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coin App</title>
-    <style>
-        body {
-            background-color: #1f1135;
-            font-family: Arial, sans-serif;
-            color: white;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            padding: 20px;
-            font-size: 1.4em;
-            font-weight: bold;
-        }
-        .coin {
-            font-size: 3em;
-            margin: 20px 0;
-        }
-        .balance {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-        .energy {
-            background-color: #ffcc00;
-            height: 20px;
-            width: 80%;
-            margin: auto;
-            border-radius: 10px;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        button {
-            background-color: #007bff;
-            border: none;
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 1em;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        button:hover {
-            opacity: 0.9;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coin App</title>
+<style>
+    body {
+        background-color: #1f1135;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: white;
+        text-align: center;
+    }
+    header {
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #2a1f4a;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .coin-icon {
+        font-size: 60px;
+        margin-top: 30px;
+    }
+    .balance {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+    .energy-bar {
+        background-color: #3a2c5a;
+        border-radius: 10px;
+        width: 80%;
+        margin: 15px auto;
+        height: 20px;
+        position: relative;
+    }
+    .energy-fill {
+        background-color: #ffcc00;
+        height: 100%;
+        border-radius: 10px;
+        width: 100%;
+    }
+    button {
+        background-color: #ff9900;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 8px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    button:hover {
+        opacity: 0.9;
+    }
+</style>
 </head>
 <body>
-    <header>🚀 Coin App</header>
-    <div class="coin">🪙</div>
-    <div class="balance">Balance: <span id="balance">0.000000</span> USDT</div>
-    <div class="energy"></div>
-    <div class="buttons">
-        <button onclick="mineCoin()">Mine</button>
-        <button onclick="withdraw()">Withdraw</button>
-    </div>
 
-    <script>
-        let balance = 0.0;
+<header>🚀 Coin App</header>
 
-        function mineCoin() {
+<div class="coin-icon">🪙</div>
+<div class="balance">Balance: <span id="balance">0.000000</span> USDT</div>
+
+<div class="energy-bar">
+    <div class="energy-fill" id="energy"></div>
+</div>
+
+<button onclick="mineCoin()">Mine</button>
+
+<script>
+    let balance = 0.000000;
+    let energy = 100;
+
+    function mineCoin() {
+        if (energy > 0) {
             balance += 0.000300;
+            energy -= 5;
             document.getElementById("balance").innerText = balance.toFixed(6);
+            document.getElementById("energy").style.width = energy + "%";
+        } else {
+            alert("No energy left! Wait for recharge.");
         }
+    }
 
-        function withdraw() {
-            alert("Withdraw function coming soon!");
+    // Enerji her 5 saniyede %5 dolsun
+    setInterval(() => {
+        if (energy < 100) {
+            energy += 5;
+            if (energy > 100) energy = 100;
+            document.getElementById("energy").style.width = energy + "%";
         }
-    </script>
+    }, 5000);
+</script>
+
 </body>
 </html>
