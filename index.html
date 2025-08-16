@@ -1,90 +1,56 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Coin Clicker</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-      color: #fff;
-      text-align: center;
-      padding: 30px;
-    }
-    h1 {
-      color: #ffd700;
-    }
-    .coin-display {
-      font-size: 22px;
-      margin: 15px 0;
-    }
-    .energy-container {
-      width: 80%;
-      height: 25px;
-      background: #444;
-      margin: 20px auto;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .energy-bar {
-      height: 100%;
-      width: 100%;
-      background: linear-gradient(90deg, #00ff00, #00cc66);
-      transition: width 0.3s ease;
-    }
-    button {
-      padding: 12px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background: #ff4500;
-      color: #fff;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #ff6347;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🚀 Coin Clicker</h1>
-  <div class="coin-display">💰 Coin: <span id="coin">0.000000</span></div>
-  <div class="coin-display">⚡ Enerji: <span id="energy">100</span>%</div>
 
-  <div class="energy-container">
-    <div class="energy-bar" id="energyBar"></div>
+  <div class="app">
+
+    <!-- Kullanıcı adı -->
+    <div class="header">
+      <span id="username">USERNAME</span>
+    </div>
+
+    <!-- Profit kutuları -->
+    <div class="profits">
+      <div class="profit-box">
+        <p>Profit per click</p>
+        <span id="profitClick">+0.000300</span>
+      </div>
+      <div class="profit-box">
+        <p>Profit per hour</p>
+        <span id="profitHour">+0</span>
+      </div>
+    </div>
+
+    <!-- Coin miktarı -->
+    <h1 id="coinDisplay">0.000000 USDT</h1>
+
+    <!-- Büyük coin resmi -->
+    <div class="coin" id="coinBtn"></div>
+
+    <!-- Enerji barı -->
+    <div class="energy">
+      <span id="energyText">500/500</span>
+      <div class="bar">
+        <div id="energyBar"></div>
+      </div>
+    </div>
+
+    <!-- Menü -->
+    <div class="menu">
+      <button>HOME</button>
+      <button>MINE</button>
+      <button>FRIENDS</button>
+      <button>EARN</button>
+    </div>
+
   </div>
 
-  <button onclick="clickCoin()">Click to Earn</button>
-
-  <script>
-    let coin = 0;
-    let energy = 100;
-
-    function updateUI() {
-      document.getElementById("coin").innerText = coin.toFixed(6);
-      document.getElementById("energy").innerText = energy.toFixed(0);
-      document.getElementById("energyBar").style.width = energy + "%";
-    }
-
-    function clickCoin() {
-      if (energy > 0) {
-        coin += 0.000300;
-        energy -= 1;
-        if (energy < 0) energy = 0;
-        updateUI();
-      }
-    }
-
-    // 3 saniyede bir enerji %5 artsın
-    setInterval(() => {
-      energy += 5;
-      if (energy > 100) energy = 100;
-      updateUI();
-    }, 3000);
-
-    updateUI();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

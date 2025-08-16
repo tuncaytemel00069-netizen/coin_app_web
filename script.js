@@ -1,31 +1,22 @@
-let balance = 0.0;
-let energy = 100; // yüzde
-const balanceEl = document.getElementById("balance");
-const energyBar = document.getElementById("energy-bar");
-const tapBtn = document.getElementById("tap-btn");
+let coins = 0.000000;
+let profitPerClick = 0.000300;
+let energy = 500;
 
-// Tıklama ile coin kazanma
-tapBtn.addEventListener("click", () => {
+const coinDisplay = document.getElementById("coinDisplay");
+const energyText = document.getElementById("energyText");
+const energyBar = document.getElementById("energyBar");
+const coinBtn = document.getElementById("coinBtn");
+
+coinBtn.addEventListener("click", () => {
   if (energy > 0) {
-    balance += 0.000300;
-    energy -= 1; // %1 azalsın
-    updateUI();
-  } else {
-    alert("Enerjin bitti! Beklemen lazım.");
+    coins += profitPerClick;
+    energy--;
+
+    // coin sayısını 6 basamaklı yazdır
+    coinDisplay.textContent = coins.toFixed(6) + " USDT";
+
+    // enerji güncelle
+    energyText.textContent = energy + "/500";
+    energyBar.style.width = (energy / 500) * 100 + "%";
   }
 });
-
-// Her 3 saniyede enerji %5 artsın
-setInterval(() => {
-  if (energy < 100) {
-    energy += 5;
-    if (energy > 100) energy = 100;
-    updateUI();
-  }
-}, 3000);
-
-// Arayüzü güncelle
-function updateUI() {
-  balanceEl.innerText = "Bakiye: " + balance.toFixed(6);
-  energyBar.style.width = energy + "%";
-}
