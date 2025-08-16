@@ -1,22 +1,47 @@
-let coins = 0.000000;
-let profitPerClick = 0.000300;
-let energy = 500;
+// Başlangıç coin miktarı
+let coin = 0.000000;
 
-const coinDisplay = document.getElementById("coinDisplay");
-const energyText = document.getElementById("energyText");
-const energyBar = document.getElementById("energyBar");
-const coinBtn = document.getElementById("coinBtn");
+// Kullanıcı adı
+document.getElementById("username").innerText = "Tuncay";
 
-coinBtn.addEventListener("click", () => {
-  if (energy > 0) {
-    coins += profitPerClick;
-    energy--;
+// Bar başlangıç değeri
+let barValue = 0;
+let barMax = 500;
 
-    // coin sayısını 6 basamaklı yazdır
-    coinDisplay.textContent = coins.toFixed(6) + " USDT";
+// Coin değerini güncelleme
+function updateCoin() {
+    document.getElementById("coinAmount").innerText = coin.toFixed(6) + " USDT";
+}
 
-    // enerji güncelle
-    energyText.textContent = energy + "/500";
-    energyBar.style.width = (energy / 500) * 100 + "%";
-  }
-});
+// Bar değerini güncelleme
+function updateBar() {
+    const barFill = document.getElementById("barFill");
+    const barText = document.getElementById("barText");
+
+    barFill.style.width = (barValue / barMax) * 100 + "%";
+    barText.innerText = barValue + "/" + barMax;
+}
+
+// Barı artırma
+function increaseBar(amount) {
+    barValue += amount;
+    if (barValue > barMax) {
+        barValue = 0; // dolunca sıfırlansın
+    }
+    updateBar();
+}
+
+// Click ile coin artırma
+function clickProfit() {
+    coin += 0.000300;
+    updateCoin();
+}
+
+// Her 3 saniyede bar +1 artsın
+setInterval(() => {
+    increaseBar(1);
+}, 3000);
+
+// İlk açılışta değerleri göster
+updateCoin();
+updateBar();

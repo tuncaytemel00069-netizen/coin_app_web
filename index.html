@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coin App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <h2 id="username">USERNAME</h2>
+        
+        <div class="profit-boxes">
+            <div class="profit">Profit per click<br>+0.000300</div>
+            <div class="profit">Profit per hour<br>+0</div>
+        </div>
 
-  <div class="app">
+        <h1 id="coinAmount">0.000000 USDT</h1>
 
-    <!-- Kullanıcı adı -->
-    <div class="header">
-      <span id="username">USERNAME</span>
+        <img src="https://i.ibb.co/qj5K0Fm/coin.png" alt="Coin" class="coin" onclick="clickProfit()">
+
+        <div class="progress-container">
+            <div id="barFill" class="progress-bar"></div>
+        </div>
+        <p id="barText">0/500</p>
+
+        <div class="menu">
+            <button>HOME</button>
+            <button>MINE</button>
+            <button>FRIENDS</button>
+            <button>EARN</button>
+        </div>
     </div>
 
-    <!-- Profit kutuları -->
-    <div class="profits">
-      <div class="profit-box">
-        <p>Profit per click</p>
-        <span id="profitClick">+0.000300</span>
-      </div>
-      <div class="profit-box">
-        <p>Profit per hour</p>
-        <span id="profitHour">+0</span>
-      </div>
-    </div>
-
-    <!-- Coin miktarı -->
-    <h1 id="coinDisplay">0.000000 USDT</h1>
-
-    <!-- Büyük coin resmi -->
-    <div class="coin" id="coinBtn"></div>
-
-    <!-- Enerji barı -->
-    <div class="energy">
-      <span id="energyText">500/500</span>
-      <div class="bar">
-        <div id="energyBar"></div>
-      </div>
-    </div>
-
-    <!-- Menü -->
-    <div class="menu">
-      <button>HOME</button>
-      <button>MINE</button>
-      <button>FRIENDS</button>
-      <button>EARN</button>
-    </div>
-
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
