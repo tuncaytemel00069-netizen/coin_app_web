@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +7,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <header>
-      <h2>Coin App</h2>
-      <p class="username">WHITEWOLF0012</p>
-    </header>
-
-    <main>
-      <div class="profit-box">
-        <div class="profit">Profit per click<br><span>+0.000300</span></div>
-        <div class="profit">Profit per hour<br><span>+0</span></div>
-      </div>
-
-      <div class="balance">
-        <h1>0.069300 USDT</h1>
-      </div>
-
-      <div class="coin">
-        <img src="coin.png" alt="Coin">
-      </div>
-
-      <div class="energy">
-        <p>498 / 500 ⚡</p>
-        <div class="bar">
-          <div class="fill" style="width: 99%;"></div>
-        </div>
-      </div>
-    </main>
-
-    <nav>
-      <button class="active">HOME</button>
-      <button>MINE</button>
-      <button>FRIENDS</button>
-      <button>EARN</button>
-    </nav>
+  <div class="container">
+    <h1>🚀 Coin App</h1>
+    <p id="balance">Bakiye: 0.000000</p>
+    <div class="energy-container">
+      <div id="energy-bar"></div>
+    </div>
+    <button id="tap-btn">💰 Tıkla ve Kazan</button>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
