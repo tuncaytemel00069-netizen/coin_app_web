@@ -1,37 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coin App</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h2 id="username">USERNAME</h2>
-        
-        <div class="profit-boxes">
-            <div class="profit">Profit per click<br>+0.000300</div>
-            <div class="profit">Profit per hour<br>+0</div>
-        </div>
+  <div class="app">
+    <!-- Coin Resmi -->
+    <img src="logo.png" alt="Coin" class="coin-img">
 
-        <h1 id="coinAmount">0.000000 USDT</h1>
+    <!-- Kullanıcı Adı -->
+    <h2 id="username">Kullanıcı Adı</h2>
 
-        <img src="https://i.ibb.co/qj5K0Fm/coin.png" alt="Coin" class="coin" onclick="clickProfit()">
+    <!-- Coin Miktarı -->
+    <p id="coinAmount">0.000000 USDT</p>
 
-        <div class="progress-container">
-            <div id="barFill" class="progress-bar"></div>
-        </div>
-        <p id="barText">0/500</p>
-
-        <div class="menu">
-            <button>HOME</button>
-            <button>MINE</button>
-            <button>FRIENDS</button>
-            <button>EARN</button>
-        </div>
+    <!-- Yükselen Bar -->
+    <div class="progress-container">
+      <div id="progress-bar"></div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Buton -->
+    <button id="playButton">🚀 Play Now</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
